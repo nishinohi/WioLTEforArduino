@@ -346,7 +346,7 @@ void WioLTE::Init() {
     PinModeAndDefault(W_DISABLE_PIN, OUTPUT, HIGH);
     // PinModeAndDefault(AP_READY_PIN, OUTPUT);  // NOT use
 
-    _SerialAPI.Begin(115200);
+    _SerialAPI.Begin(115200, CELLULAR_RX_PIN, CELLULAR_TX_PIN);
     // _Led.begin();
     _LastErrorCode = E_OK;
 
