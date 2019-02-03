@@ -24,9 +24,17 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 // Helper functions
 
-static void PinModeAndDefault(int pin, uint8_t mode) { pinMode(pin, mode); }
+static void PinModeAndDefault(int pin, uint8_t mode) {
+    if (pin == WioLTE::NAN_PIN) {
+        return;
+    }
+    pinMode(pin, mode);
+}
 
 static void PinModeAndDefault(int pin, uint8_t mode, int value) {
+    if (pin == WioLTE::NAN_PIN) {
+        return;
+    }
     pinMode(pin, mode);
     if (mode == OUTPUT)
         digitalWrite(pin, value);
@@ -328,6 +336,7 @@ void WioLTE::Init() {
 
     // Status Indication Pins
     PinModeAndDefault(STATUS_PIN, INPUT);
+    PinModeAndDefault(NAN_PIN, INPUT);
 
     // UART Interface
     PinModeAndDefault(DTR_PIN, OUTPUT, LOW);

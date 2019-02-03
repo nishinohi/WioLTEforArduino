@@ -12,7 +12,8 @@
 #define WIOLTE_SCHEMATIC_A
 #elif defined WIOLTE_TYPE_JP_ES_V12 || defined WIOLTE_TYPE_V10 || defined WIOLTE_TYPE_V11 ||       \
     defined WIOLTE_TYPE_V13
-#define WIOLTE_SCHEMATIC_B
+#define TRAP_MOUDLE_DEVICE
+// #define WIOLTE_SCHEMATIC_B
 #endif
 
 //#define WIO_DEBUG

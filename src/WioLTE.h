@@ -42,6 +42,9 @@ class WioLTE {
         SOCKET_UDP,
     };
 
+    // Not use Pin
+    static const int NAN_PIN = -1;
+
   private:
 #if defined WIOLTE_SCHEMATIC_A
     static const int MODULE_PWR_PIN = 18;  // PB2
@@ -82,24 +85,26 @@ class WioLTE {
     static const int SD_POWR_PIN = 15; // PA15
 
 #elif defined TRAP_MOUDLE_DEVICE
-    static const int MODULE_PWR_PIN = 21;  // PB5
-    static const int ANT_PWR_PIN = 28;     // PB12
-    static const int ENABLE_VCCB_PIN = 26; // PB10
-    static const int RGB_LED_PWR_PIN = 8;  // PA8
+    static const int CELLULAR_RX_PIN = 26;
+    static const int CELLULAR_TX_PIN = 27;
+    static const int DTR_PIN = 33;
+    static const int MODULE_PWR_PIN = 32;
+    static const int PWR_KEY_PIN = 18;
+    static const int RESET_MODULE_PIN = 25;
 
-    static const int PWR_KEY_PIN = 36;      // PC4
-    static const int RESET_MODULE_PIN = 35; // PC3
+    static const int MESH_LED_PIN = 13;
+    static const int TRAP_FORCE_PIN = 35;
+    static const int TRAP_CHECK_PIN = 14;
 
-    static const int STATUS_PIN = 31; // PB15
-
-    static const int DTR_PIN = 1; // PA1
-
-    static const int WAKEUP_IN_PIN = 32; // PC0
-    static const int W_DISABLE_PIN = 34; // PC2
-    static const int AP_READY_PIN = 33;  // PC1
-
-    static const int RGB_LED_PIN = 17; // PB1
-    static const int SD_POWR_PIN = 15; // PA15
+    static const int STATUS_PIN = NAN_PIN;      // not use
+    static const int WAKEUP_IN_PIN = NAN_PIN;   // not use
+    static const int W_DISABLE_PIN = NAN_PIN;   // not use
+    static const int AP_READY_PIN = NAN_PIN;    // not use
+    static const int ANT_PWR_PIN = NAN_PIN;     // not use
+    static const int ENABLE_VCCB_PIN = NAN_PIN; // not use
+    static const int RGB_LED_PWR_PIN = NAN_PIN; // not use
+    static const int RGB_LED_PIN = NAN_PIN;     // not use
+    static const int SD_POWR_PIN = NAN_PIN;     // not use
 
 #else
 #error Unkown WioLTE type
