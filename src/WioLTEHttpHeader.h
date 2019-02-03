@@ -4,6 +4,4 @@
 
 #include <map>
 
-class WioLTEHttpHeader : public std::map<String, String>
-{
-};
+class WioLTEHttpHeader : public std::map<String, String> {};
