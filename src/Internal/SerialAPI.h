@@ -5,15 +5,11 @@
 class SerialAPI {
   private:
     HardwareSerial *_Serial;
-    int _baud;
-    uint8_t _rxPin;
-    uint8_t _txPin;
 
   public:
-    SerialAPI(HardwareSerial *serial, int baud, uint8_t rxPin, uint8_t txPin)
-        : _Serial(serial), _baud(baud), _rxPin(rxPin), _txPin(txPin) {}
-    void Begin(int baud) { _Serial->begin(baud); }
-    void Begin(int baud, uint8_t rxPin, uint8_t txPin) {
+    SerialAPI(HardwareSerial *serial) : _Serial(serial) {}
+    void Begin(int baud = 115200) { _Serial->begin(baud); }
+    void Begin(uint8_t rxPin, uint8_t txPin, int baud = 115200) {
         _Serial->begin(baud, SERIAL_8N1, rxPin, txPin);
     }
     void Write(byte data) { _Serial->write(data); }

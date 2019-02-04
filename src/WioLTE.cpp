@@ -315,12 +315,12 @@ bool WioLTE::ReadResponseCallback(const char *response) {
 }
 
 WioLTE::WioLTE()
-    : _cellularSerial(HardwareSerial(1)), _SerialAPI(&_cellularSerial, 115200, 26, 27),
+    : _cellularSerial(HardwareSerial(1)), _SerialAPI(&_cellularSerial),
       _AtSerial(&_SerialAPI, this) /*, _Led(1, RGB_LED_PIN)*/, _LastErrorCode(E_OK) {}
 
 WioLTE::ErrorCodeType WioLTE::GetLastError() const { return _LastErrorCode; }
 
-void WioLTE::Init() {
+void WioLTE::Init(uint8_t rxPin, uint8_t txPin) {
     // Power supply
     PinModeAndDefault(MODULE_PWR_PIN, OUTPUT, LOW);
     PinModeAndDefault(ANT_PWR_PIN, OUTPUT, LOW);
@@ -346,7 +346,7 @@ void WioLTE::Init() {
     PinModeAndDefault(W_DISABLE_PIN, OUTPUT, HIGH);
     // PinModeAndDefault(AP_READY_PIN, OUTPUT);  // NOT use
 
-    _SerialAPI.Begin(115200, CELLULAR_RX_PIN, CELLULAR_TX_PIN);
+    _SerialAPI.Begin(rxPin, txPin);
     // _Led.begin();
     _LastErrorCode = E_OK;
 

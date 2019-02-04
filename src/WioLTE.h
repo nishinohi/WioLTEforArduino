@@ -85,16 +85,16 @@ class WioLTE {
     static const int SD_POWR_PIN = 15; // PA15
 
 #elif defined TRAP_MOUDLE_DEVICE
-    static const int CELLULAR_RX_PIN = 26;
-    static const int CELLULAR_TX_PIN = 27;
+    static const int DEFAULT_RX_PIN = 26;
+    static const int DEFAULT_TX_PIN = 27;
     static const int DTR_PIN = 33;
     static const int MODULE_PWR_PIN = 32;
     static const int PWR_KEY_PIN = 18;
     static const int RESET_MODULE_PIN = 25;
 
-    static const int MESH_LED_PIN = 13;
-    static const int TRAP_FORCE_PIN = 35;
-    static const int TRAP_CHECK_PIN = 14;
+    // static const int MESH_LED_PIN = 13;
+    // static const int TRAP_FORCE_PIN = 35;
+    // static const int TRAP_CHECK_PIN = 14;
 
     static const int STATUS_PIN = NAN_PIN;      // not use
     static const int WAKEUP_IN_PIN = NAN_PIN;   // not use
@@ -164,7 +164,7 @@ class WioLTE {
   public:
     WioLTE();
     ErrorCodeType GetLastError() const;
-    void Init();
+    void Init(uint8_t rxPin = DEFAULT_RX_PIN, uint8_t txPin = DEFAULT_TX_PIN);
     void PowerSupplyLTE(bool on); // Keep compatibility
     void PowerSupplyCellular(bool on);
     void PowerSupplyGNSS(bool on);
