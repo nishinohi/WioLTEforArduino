@@ -30,6 +30,10 @@
 #define WIO_A4 (WioLTE::A4)
 #define WIO_A5 (WioLTE::A5)
 
+#define SOCKET_OPEN_TIMEOUT (15000)
+#define SOCKET_SEND_TIMEOUT (5000)
+#define SOCKET_RECEIVE_TIMEOUT (10000)
+
 class WioLTE {
   public:
     enum ErrorCodeType {
@@ -91,10 +95,6 @@ class WioLTE {
     static const int MODULE_PWR_PIN = 32;
     static const int PWR_KEY_PIN = 18;
     static const int RESET_MODULE_PIN = 25;
-
-    // static const int MESH_LED_PIN = 13;
-    // static const int TRAP_FORCE_PIN = 35;
-    // static const int TRAP_CHECK_PIN = 14;
 
     static const int STATUS_PIN = NAN_PIN;      // not use
     static const int WAKEUP_IN_PIN = NAN_PIN;   // not use

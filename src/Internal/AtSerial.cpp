@@ -22,6 +22,8 @@ bool AtSerial::WaitForAvailable(Stopwatch *sw, unsigned long timeout) const {
             DEBUG_PRINTLN("### TIMEOUT ###");
             return false;
         }
+        delay(10);
+        yield();
     }
 
     return true;
