@@ -2,9 +2,11 @@
 
 #include "Internal/AtSerial.h"
 #include "WioLTEConfig.h"
-// #include <Seeed_ws2812.h>
 #include "WioLTEHttpHeader.h"
 #include <time.h>
+#ifndef TRAP_MOUDLE_DEVICE
+#include <Seeed_ws2812.h>
+#endif
 
 #define WIOLTE_TCP (WioLTE::SOCKET_TCP)
 #define WIOLTE_UDP (WioLTE::SOCKET_UDP)

@@ -22,5 +22,7 @@ __attribute__((always_inline)) __STATIC_INLINE void __NOP(void) { __ASM volatile
            It completes when all explicit memory accesses before this instruction complete.
  */
 __attribute__((always_inline)) __STATIC_INLINE void __DSB(void) {
-    // __ASM volatile ("dsb 0xF":::"memory");
+#ifndef TRAP_MOUDLE_DEVICE
+    __ASM volatile("dsb 0xF" ::: "memory");
+#endif
 }
